@@ -1,10 +1,10 @@
 package base;
 
-import java.io.Serializable;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -54,6 +54,11 @@ public class NoteBook implements Serializable{
 
     public ArrayList<Folder> getFolders() {
         return folders;
+    }
+
+    public void addFolder(String folderName) {
+        Folder folder = new Folder(folderName);
+        this.folders.add(folder);
     }
 
     public boolean insertNote(String folderName, Note note) {

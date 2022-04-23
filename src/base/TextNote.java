@@ -1,16 +1,18 @@
 package base;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 
 public class TextNote extends Note {
     String content;
+
+    private static final long serialVersionUID = 1L;
 
     public TextNote(String title) {
         super(title);
@@ -28,6 +30,10 @@ public class TextNote extends Note {
 
     public String getContent() {
         return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     private String getTextFromFile(String absolutePath) {

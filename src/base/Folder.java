@@ -2,12 +2,14 @@ package base;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Collections;
+import java.util.Objects;
 
 public class Folder implements Comparable<Folder>, Serializable {
     private ArrayList<Note> notes;
     private String name;
+
+    private static final long serialVersionUID = 1L;
 
     public Folder(String name) {
         this.notes = new ArrayList<Note>();
@@ -24,6 +26,16 @@ public class Folder implements Comparable<Folder>, Serializable {
 
     public ArrayList<Note> getNotes() {
         return notes;
+    }
+
+    public boolean removeNotes(String title) {
+        for (Note note : notes) {
+            if (note.getTitle().equals(title)) {
+                notes.remove(note);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
